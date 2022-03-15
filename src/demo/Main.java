@@ -17,6 +17,15 @@ public class Main {
 
         fh.writer(createTable);
 
+        ArrayList<String> list2 = fh.loadMovies();
+        String insertInto = "INSERT INTO imdb\n" +
+                "VALUES (";
+        for (int i=0; i < list2.size(); i++) {
+            insertInto += list2.get(i);
+            insertInto += ", ";
+        }
+        insertInto += ");";
 
+        fh.writer2(insertInto);
     }
 }
